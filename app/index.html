@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <link rel="import" href="../bower_components/polymer/polymer.html">
+
+        <link rel="import" href="../bower_components/express-web-components/express-app">
+        <link rel="import" href="../bower_components/express-web-components/express-middleware">
+        <link rel="import" href="../bower_components/express-web-components/express-router">
+
+        <link rel="import" href="components/animals/animals.component.html">
+    </head>
+
+    <body>
+        <dom-module id="example-app">
+            <template>
+                <express-app port="5000">
+                    <express-middleware method="get" path="/" callback="[[index]]"></express-middleware>
+
+                    <express-router path="/api">
+                        <example-animals></example-animals>
+                    </express-router>
+
+                    <express-middleware callback="[[notFound]]"></express-middleware>
+                </express-app>
+            </template>
+
+            <script>
+                class AppComponent {
+                    beforeReady() {
+                        this.is = 'example-app';
+                    }
+
+                    ready() {
+                        this.index = (req, res) => {
+                            res.send('It works!!!');
+                        };
+
+                        this.notFound = (req, res) => {
+                            res.status(404).send('Not found');
+                        };
+                    }
+                }
+
+                Polymer(AppComponent);
+            </script>
+        </dom-module>
+
+        <example-app></example-app>
+    </body>
+
+</html>

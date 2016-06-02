@@ -1,0 +1,21 @@
+{
+  "name": "presentation-example",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jordan Last <jordan.michael.last@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/scramjs/presentation-example",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "express-web-components": "^0.1.11",
+    "polymer": "Polymer/polymer#^1.5.0"
+  }
+}

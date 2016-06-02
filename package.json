@@ -1,0 +1,25 @@
+{
+  "name": "presentation-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron node_modules/scram-engine/main.js app/index.html",
+    "dev-window": "electron node_modules/scram-engine/main.js app/index.html -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scramjs/presentation-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scramjs/presentation-example/issues"
+  },
+  "homepage": "https://github.com/scramjs/presentation-example#readme",
+  "dependencies": {
+    "electron-prebuilt": "^1.2.1",
+    "express": "^4.13.4",
+    "scram-engine": "^0.2.2"
+  }
+}

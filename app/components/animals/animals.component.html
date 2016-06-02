@@ -1,0 +1,41 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../../bower_components/express-web-components/express-app">
+<link rel="import" href="../../../bower_components/express-web-components/express-middleware">
+<link rel="import" href="../../../bower_components/express-web-components/express-router">
+
+<dom-module id="example-animals">
+    <template>
+        <express-middleware method="get" path="/monkey" callback="[[monkey]]"></express-middleware>
+        <express-middleware method="get" path="/lion" callback="[[lion]]"></express-middleware>
+        <express-middleware method="get" path="/tiger" callback="[[tiger]]"></express-middleware>
+    </template>
+
+    <script>
+        class AnimalsComponent {
+            beforeReady() {
+                this.is = "example-animals";
+            }
+
+            get behaviors() {
+                return [ExpressParentBehavior];
+            }
+
+            ready() {
+                this.monkey = (req ,res) => {
+                    res.send('monkey');
+                };
+
+                this.lion = (req ,res) => {
+                    res.send('lion');
+                };
+
+                this.tiger = (req ,res) => {
+                    res.send('tiger');
+                };
+            }
+        }
+
+        Polymer(AnimalsComponent);
+    </script>
+</dom-module>
