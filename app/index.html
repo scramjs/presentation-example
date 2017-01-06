@@ -3,13 +3,16 @@
 <html>
 
     <head>
-        <link rel="import" href="../bower_components/polymer/polymer.html">
+        <base href="..">
+        <script src="zwitterion-config.js"></script>
 
-        <link rel="import" href="../bower_components/express-web-components/express-app">
-        <link rel="import" href="../bower_components/express-web-components/express-middleware">
-        <link rel="import" href="../bower_components/express-web-components/express-router">
+        <link rel="import" href="bower_components/polymer/polymer.html">
 
-        <link rel="import" href="components/animals/animals.component.html">
+        <link rel="import" href="bower_components/express-web-components/express-app.html">
+        <link rel="import" href="bower_components/express-web-components/express-middleware.html">
+        <link rel="import" href="bower_components/express-web-components/express-router.html">
+
+        <link rel="import" href="app/components/animals/animals.component.html">
     </head>
 
     <body>
@@ -26,25 +29,7 @@
                 </express-app>
             </template>
 
-            <script>
-                class AppComponent {
-                    beforeReady() {
-                        this.is = 'example-app';
-                    }
-
-                    ready() {
-                        this.index = (req, res) => {
-                            res.send('It works!!!');
-                        };
-
-                        this.notFound = (req, res) => {
-                            res.status(404).send('Not found');
-                        };
-                    }
-                }
-
-                Polymer(AppComponent);
-            </script>
+            <script src="app/index.ts"></script>
         </dom-module>
 
         <example-app></example-app>
